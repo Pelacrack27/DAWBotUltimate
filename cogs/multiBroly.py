@@ -74,5 +74,5 @@ class multiBroly(commands.Cog):
     await ctx.respond("**Multisummon finished**")
 
 
-def setup(bot):
-	bot.add_cog(multiBroly(bot))
+async def setup(client):
+    await client.add_cog(multiBroly(client))

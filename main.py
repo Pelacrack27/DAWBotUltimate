@@ -1,7 +1,8 @@
 import discord
 import os
 
-bot = discord.Bot(intents=discord.Intents.all(),)
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
 
 discord_token = os.environ.get('DISCORD_TOKEN')
 
@@ -19,10 +20,14 @@ extensions = [
     'cogs.multiBroly'
 ]
 
-# import cogs from the folder
-if __name__ == '__main__': 
-    for extension in extensions:
-        bot.load_extension(extension)
+@client.event
+async def setup_hook():
+  for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        await client.load_extension(f'cogs.{filename[:-3]}')
+        print(f"Loaded Cog: {filename[:-3]}")
+    else:
+        print("Unable to load pycache folder.")
         
 # bot token
-bot.run(discord_token)  
+client.run(discord_token)  
