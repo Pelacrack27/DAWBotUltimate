@@ -49,29 +49,29 @@ class multiBroly(commands.Cog):
   @slash_command(name="multibroly", description="Multisummon 9th Anniversary event (Broly) [Dokkan festival]")
   async def multiBroly(self, ctx: discord.ApplicationContext):
     await ctx.respond("**Starting multisummon:**")
-    await ctx.send("<:SSR_eclair:971672682712141844> Featured - 3 points")
-    await ctx.send("<:SSR_eclair:971672682712141844> Not featured - 2 points")
-    await ctx.send("<:SR_eclair:971673046496731166>  - 1 point")
-    await ctx.send(random.choice(summon_animations))
+    await ctx.respond("<:SSR_eclair:971672682712141844> Featured - 3 points")
+    await ctx.respond("<:SSR_eclair:971672682712141844> Not featured - 2 points")
+    await ctx.respond("<:SR_eclair:971673046496731166>  - 1 point")
+    await ctx.respond(random.choice(summon_animations))
     points = 0
     for i in range(0, 9):
             number = random.randint(1, 10000)
             if number >= 9300:
                 random2 = random.choice(featured_ssr_broly)
-                await ctx.send(random2)
+                await ctx.respond(random2)
                 points = points + 3
             elif number >= 9000:
-                await ctx.send(random.choice(random_ssr_broly))
+                await ctx.respond(random.choice(random_ssr_broly))
                 points = points + 2
             elif number >= 3000:
-                await ctx.send(random.choice(sr_broly))
+                await ctx.respond(random.choice(sr_broly))
                 points = points + 1
             else:
-                await ctx.send("<:R_eclair:971673105024045056> Random")  
-    await ctx.send(random.choice(featured_ssr_broly))
+                await ctx.respond("<:R_eclair:971673105024045056> Random")  
+    await ctx.respond(random.choice(featured_ssr_broly))
     points = points + 3
-    await ctx.send(f"Total points: {points}")
-    await ctx.send("**Multisummon finished**")
+    await ctx.respond(f"Total points: {points}")
+    await ctx.respond("**Multisummon finished**")
 
 
 def setup(bot):
