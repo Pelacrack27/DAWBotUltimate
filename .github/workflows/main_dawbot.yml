@@ -68,6 +68,7 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C2E4E908B8504A51B89D7193A8B225A8 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_100C7F93B02E4C1798E0F42CB1DE60F9 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C9BFCFA7F94A40AC96A19E4F314CDAF7 }}
+          discord_token: ${{secrets.DISCORD_TOKEN}}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
