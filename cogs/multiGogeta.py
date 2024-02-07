@@ -59,29 +59,29 @@ class multiGogeta(commands.Cog):
   @slash_command(name="multigogeta", description="Multisummon 9th Anniversary event (Gogeta) [Carnival]")
   async def multiGogeta(self, ctx: discord.ApplicationContext):
     await ctx.respond("**Starting multisummon:**")
-    await ctx.send("<:SSR_eclair:971672682712141844> Featured - 3 points")
-    await ctx.send("<:SSR_eclair:971672682712141844> Not featured - 2 points")
-    await ctx.send("<:SR_eclair:971673046496731166>  - 1 point")
-    await ctx.send(random.choice(summon_animations))
+    await ctx.respond("<:SSR_eclair:971672682712141844> Featured - 3 points")
+    await ctx.respond("<:SSR_eclair:971672682712141844> Not featured - 2 points")
+    await ctx.respond("<:SR_eclair:971673046496731166>  - 1 point")
+    await ctx.respond(random.choice(summon_animations))
     points = 0
     for i in range(0, 9):
             number = random.randint(1, 10000)
             if number >= 9300:
                 random2 = random.choice(featured_ssr_gogeta)
-                await ctx.send(random2)
+                await ctx.respond(random2)
                 points = points + 3
             elif number >= 9000:
-                await ctx.send(random.choice(random_ssr_gogeta))
+                await ctx.respond(random.choice(random_ssr_gogeta))
                 points = points + 2
             elif number >= 3000:
-                await ctx.send(random.choice(random_sr_gogeta))
+                await ctx.respond(random.choice(random_sr_gogeta))
                 points = points + 1
             else:
-                await ctx.send("<:R_eclair:971673105024045056> Personaje kk")  
-    await ctx.send(random.choice(featured_ssr_gogeta))
+                await ctx.respond("<:R_eclair:971673105024045056> Personaje kk")  
+    await ctx.respond(random.choice(featured_ssr_gogeta))
     points = points + 3
-    await ctx.send(f"Total points: {points}")
-    await ctx.send("**Multisummon finished**")
+    await ctx.respond(f"Total points: {points}")
+    await ctx.respond("**Multisummon finished**")
 
 
 def setup(bot):
